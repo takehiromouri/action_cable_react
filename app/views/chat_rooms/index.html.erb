@@ -2,6 +2,8 @@
 
 <p class="lead"><%= link_to 'New chat room', new_chat_room_path, class: 'btn btn-primary' %></p>
 
-<ul>
-  <%= render @chat_rooms %>
-</ul>
+<%= simple_form_for :chat_room_requests, url: chat_room_requests_path, method: :post do |f| %>
+  <h5>Enter 5 Digit Room Code</h5>
+
+  <%= f.input :room_code %>
+<% end %>  

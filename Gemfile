@@ -33,6 +33,8 @@ gem 'redis', '~> 3.2'
 gem 'devise'
 gem 'bootstrap', '~> 4.0.0.alpha3'
 
+gem 'simple_form'
+
 
 
 group :development, :test do
@@ -41,6 +43,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'pry-rails'
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console'
   gem 'listen', '~> 3.0.5'
