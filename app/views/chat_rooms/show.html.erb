@@ -1,4 +1,8 @@
-<h1>Room Code: <%= @chat_room.room_code %></h1>
+<ul>
+  <li>Board Number: <%= @chat_room.room_code  %></li>
+  <li>Created By: <%= @chat_room.user_name %></li>
+  <li>Created On: <%= display_date(@chat_room.created_at) %></li>
+</ul>
 
 <div id="messages" data-chat-room-id="<%= @chat_room.id %>">
   <%= render @chat_room.messages %>

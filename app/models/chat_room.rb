@@ -6,6 +6,8 @@ class ChatRoom < ApplicationRecord
 
   before_create :generate_room_code!
 
+  delegate :name, to: :user, prefix: true
+
   private
 
   def generate_room_code!
