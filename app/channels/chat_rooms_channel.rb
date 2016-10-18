@@ -1,10 +1,11 @@
 class ChatRoomsChannel < ApplicationCable::Channel
-  def subscribed
-    stream_from "chat_rooms_#{params['chat_room_id']}_channel"
+  def follow(data)
+    stop_all_streams
+    stream_from "chat_rooms_#{data['chat_room_id']}_channel"
   end
 
-  def unsubscribed
-    # Any cleanup needed when channel is unsubscribed
+  def unfollow
+    stop_all_streams
   end
 
   def send_message(data)

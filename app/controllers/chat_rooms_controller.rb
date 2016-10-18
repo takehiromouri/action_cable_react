@@ -2,7 +2,7 @@ class ChatRoomsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @chat_rooms = ChatRoom.all
+    render component: 'Main', props: { current_user: current_user }
   end
 
   def show
@@ -17,8 +17,9 @@ class ChatRoomsController < ApplicationController
   def create
     @chat_room = current_user.chat_rooms.build
     if @chat_room.save
-      flash[:success] = 'Chat room added!'
-      redirect_to chat_room_path(@chat_room)
+      respond_to do |format|
+        format.json { render json: @chat_room.as_json(include: :messages) }
+      end
     else
       render 'new'
     end
