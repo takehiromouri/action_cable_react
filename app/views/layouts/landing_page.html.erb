@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Asscky</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="site">
+      <div class="site-loader">
+        <div class="site-loader-spinner"></div>
+      </div> <!-- .site-loader -->
+
+      <div class="site-canvas">        
+        <%= render 'layouts/nav' %>        
+
+        <main class="site-main">
+          <%= render 'landing_page/top' %>
+          <%= render 'landing_page/about' %>
+          <%= render 'landing_page/brief' %>
+          <%= render 'landing_page/pricing' %>
+          <%= render 'landing_page/download' %>
+          <%= render 'landing_page/contact' %>
+        </main> <!-- .site-main -->
+        
+        <%= render 'layouts/footer' %>
+      </div>
+    </div>
+
+    <script src='assets/main.js'></script>
+  </body>
+</html>
