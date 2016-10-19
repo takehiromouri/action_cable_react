@@ -1,5 +1,9 @@
 class StaticPagesController < ApplicationController
   def index
-    render layout: 'landing_page'
+    if current_user.present?
+      redirect_to chat_rooms_path
+    else
+      render layout: 'landing_page'
+    end
   end
 end

@@ -23,7 +23,14 @@
           <li><a href="#pricing">Pricing</a></li>
           <li><a href="#download">Download</a></li>
           <li><a href="#contact">Contact</a></li>
-          <li class="audio-toggle"><a href="#"><i class="fa fa-volume-up"></i></a></li>
+
+          <% if user_signed_in? %>
+            <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+            <li><%= link_to 'Sign In', new_user_session_path %></li>
+          <% end %>
+          
         </ul>
       </div> <!-- .navbar-collapse -->
     </div>
